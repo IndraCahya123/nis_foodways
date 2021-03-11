@@ -5,9 +5,10 @@ import AddProduct from '../images/add_product.png';
 import Logout from '../images/logout.png';
 import UserIcon from '../images/user.png';
 import {Dropdown} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 function Logged() {
-    const user = 'partner';
+    const user = 'customer';
     return (
         <>
             <button style={{ background: "none", border: "none" }}>
@@ -37,7 +38,7 @@ function Logged() {
 function CustomerDropdownMenu(){
     return(
         <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1" className="d-flex align-items-center">
+            <Dropdown.Item as={Link} to="/profile" className="d-flex align-items-center">
                 <img 
                     src={UserIcon}
                     alt="User Icon"
@@ -65,7 +66,7 @@ function CustomerDropdownMenu(){
 function PartnerDropdownMenu(){
     return(
         <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1" className="d-flex align-items-center">
+            <Dropdown.Item as={Link} to="/profile" className="d-flex align-items-center">
                 <img 
                     src={UserIcon}
                     alt="User Icon"
