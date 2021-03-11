@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, CardDeck, Card } from 'react-bootstrap';
+import { Container, Row, CardDeck } from 'react-bootstrap';
 import TopLandingPage from '../components/TopLandingPage';
 import RestaurantCard from '../components/RestaurantCard';
 import NearestRestaurantCard from '../components/NearestRestaurantCard';
@@ -32,7 +32,7 @@ function Popular(){
             <Row>
                 <CardDeck>
                     {Restaurant.map((item) => 
-                        <RestaurantCard key={item.id} name={item.name} logo={item.logo} />
+                        <RestaurantCard key={item.id} name={item.name} logo={item.logo} restId={item.id} />
                     )}
                 </CardDeck>
             </Row>

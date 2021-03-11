@@ -1,24 +1,17 @@
 import React from 'react';
-import Cart from '../images/cart.png';
 import Customer from '../images/customer_circle.png';
 import AddProduct from '../images/add_product.png';
 import Logout from '../images/logout.png';
 import UserIcon from '../images/user.png';
 import {Dropdown} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import MyCart from './Cart'
 
 function Logged() {
     const user = 'customer';
     return (
         <>
-            <button style={{ background: "none", border: "none" }}>
-                <img
-                    src={Cart}
-                    alt="Cart"
-                    width="35px"
-                    height="32px"
-                />
-            </button>
+            <MyCart />
             <Dropdown>
                 <Dropdown.Toggle variant="none" id="dropdown-basic">
                     <img 

@@ -5,6 +5,7 @@ import LoginModal from './components/LoginModal';
 import Navbar from './components/navbar';
 import LandingPage from './pages/Landing';
 import Profile from './pages/Profile';
+import RestaurantProductDetail from './pages/RestaurantProductDetail';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/login" component={LoginModal} />
         <Route exact path="/profile" component={Profile} />
+        <Route exact path="/restaurant-product-detail/:id" component={RestaurantProductDetail} />
       </Switch>
     </Router>
     </>
