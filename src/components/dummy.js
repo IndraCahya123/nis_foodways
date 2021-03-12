@@ -139,3 +139,34 @@ export const NearestRestaurants = [
         products: [{}]
     },
 ];
+
+export const Orders = [
+    {
+        id: 1,
+        customerName : "Indra Cahya B",
+        customerAddress: "Kota Pasuruan",
+        customerOrder: "Ayam Geprek",
+        statusOrder: "Waiting Approve" 
+    },
+    {
+        id: 2,
+        customerName : "Indra Cahya B",
+        customerAddress: "Kota Pasuruan",
+        customerOrder: "Ayam Geprek",
+        statusOrder: "Success" 
+    },
+    {
+        id: 3,
+        customerName : "Indra Cahya B",
+        customerAddress: "Kota Pasuruan",
+        customerOrder: "Ayam Geprek",
+        statusOrder: "Cancel" 
+    },
+    {
+        id: 4,
+        customerName : "Indra Cahya B",
+        customerAddress: "Kota Pasuruan",
+        customerOrder: "Ayam Geprek",
+        statusOrder: "On The Way" 
+    },
+];

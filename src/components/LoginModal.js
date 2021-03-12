@@ -1,12 +1,16 @@
 import React, {useState} from 'react';
 import {Modal, Button, Form} from 'react-bootstrap';
+import {useHistory} from 'react-router-dom';
 
-function LoginModal(props){
+function LoginModal(){
+    let history = useHistory();
 
     const [values, setValues] = useState({
         email: '',
         password: ''
     });
+
+    const [showed, setShowed] = useState(true);
 
     const handleChange = event => {
         const {name, value} = event.target;
@@ -18,13 +22,18 @@ function LoginModal(props){
 
     const handleSubmit = event => {
         event.preventDefault();
-
-        console.log(values);
+        event.stopPropagation();
+        if (values.email == "indracahya51@gmail.com" && values.password == "123") {
+            setShowed(false);
+            history.push('/partner');
+        } else {
+            history.goBack();
+        }
     }
     
     return (
         <Modal
-            show="true"
+            show={showed}
             size="sm"
             aria-labelledby="contained-modal-title-vcenter"
             centered

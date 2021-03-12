@@ -6,7 +6,7 @@ import NotLogged from './NotLogged';
 import Logged from './Logged';
 
 function MyNavbar(){
-    const testLogin = true;
+    const testLogin = false;
     return(
         <Navbar fixed="top">
             <Navbar.Brand as={Link} to="/" >
