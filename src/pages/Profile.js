@@ -1,9 +1,13 @@
 import React from 'react'
+import {useParams} from 'react-router-dom';
 import LeftContent from '../components/ProfileLeftContent';
 import RightContent from '../components/ProfileRightContent';
 import CustomerProfile from '../images/customer_rect.png';
 
 function Profile() {
+    const {role} = useParams()
+
+    
     return (
         <div className="d-flex justify-content-between" style={{ width: "80%", margin: "0 auto", padding: "164px 0 400px" }}>
             <LeftContent userRole="My Profile" profileImage={CustomerProfile} username="Customer Name" userEmail="customer@email.com" userPhone="Customer Phone Number"/>
