@@ -15,7 +15,7 @@ function RestaurantProductDetail() {
     const item = findItem();
     const products = item.products;
 
-    if (products[0].length === undefined || products === undefined) {
+    if (products === undefined) {
         return (
             <div style={{ padding: "164px 0", margin: "0 auto", width: 1070}}>
                 <RestaurantCard name={item.name} logo={item.logo} key={item.id} />

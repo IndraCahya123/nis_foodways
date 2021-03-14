@@ -1,24 +1,40 @@
-import React from 'react';
+import {useContext} from 'react';
+import {Dropdown} from 'react-bootstrap';
+import {Link, useHistory} from 'react-router-dom';
+
+import { UserContext } from '../contexts/userContext';
+
+import MyCart from './Cart';
+
 import Customer from '../images/customer_circle.png';
 import AddProduct from '../images/add_product.png';
 import Logout from '../images/logout.png';
 import UserIcon from '../images/user.png';
 import PartnerIcon from '../images/partner_circle.png';
-import {Dropdown} from 'react-bootstrap';
-import {Link, useHistory} from 'react-router-dom';
-import MyCart from './Cart'
+
+
 
 function Logged() {
-    const user = 'partner';
-    return (
-        <>
-            {user === 'partner' ? <PartnerDropdownMenu /> : <CustomerDropdownMenu />}
-        </>
-    )
+    const [state, dispatch] = useContext(UserContext);
+
+    switch (state.role) {
+        case "partner":
+            return (
+                <PartnerDropdownMenu dispatch={dispatch} />
+            );
+        case "customer":
+            return (
+                <CustomerDropdownMenu dispatch={dispatch} />
+            );
+            
+        default:
+            break;
+    }
 }
 
-function CustomerDropdownMenu(){
+function CustomerDropdownMenu(props) {
     const history = useHistory()
+
     return(
         <>
             <MyCart />
@@ -43,7 +59,10 @@ function CustomerDropdownMenu(){
                         <span style={{ fontFamily: "'Nunito Sans'", fontWeight: "800" }}>Profile</span>
                     </Dropdown.Item>
                     <Dropdown.Divider />
-                    <Dropdown.Item href="#/action-2" className="d-flex align-items-center">
+                    <Dropdown.Item onClick={() => {
+                        props.dispatch({ type: "LOGOUT" });
+                        history.push('/');
+                    }} className="d-flex align-items-center">
                         <img 
                             src={Logout}
                             alt="Logout Icon"
@@ -59,7 +78,7 @@ function CustomerDropdownMenu(){
     ); 
 }
 
-function PartnerDropdownMenu(){
+function PartnerDropdownMenu(props){
     const history = useHistory();
     return(
         <>
@@ -94,7 +113,10 @@ function PartnerDropdownMenu(){
                         <span style={{ fontFamily: "'Nunito Sans'", fontWeight: "800" }}>Add Product</span>
                     </Dropdown.Item>
                     <Dropdown.Divider />
-                    <Dropdown.Item href="#/action-2" className="d-flex align-items-center">
+                    <Dropdown.Item onClick={() => {
+                        props.dispatch({ type: "LOGOUT" });
+                        history.push('/');
+                    }} className="d-flex align-items-center">
                     <img 
                         src={Logout}
                         alt="Logout Icon"

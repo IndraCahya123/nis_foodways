@@ -1,10 +1,10 @@
-import React from 'react'
-import {Card} from 'react-bootstrap';
 import {useHistory} from 'react-router-dom';
+import {Card} from 'react-bootstrap';
 
 function RestaurantCard(props) {
     const history = useHistory();
-    const {name, logo, restId, key} = props;
+
+    const {name, logo, restId} = props;
     return (
         <div>
             <Card onClick={() => history.push(`/restaurant-product-detail/${restId}`)} style={{ cursor: "pointer" }}>

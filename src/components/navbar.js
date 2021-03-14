@@ -1,12 +1,17 @@
-import React from 'react';
+import {useContext} from 'react';
 import {Link} from 'react-router-dom';
 import {Navbar, Form, Nav} from 'react-bootstrap';
+
+import { UserContext } from '../contexts/userContext';
+
 import brandLogo from '../images/fw_logo.png';
+
 import NotLogged from './NotLogged';
 import Logged from './Logged';
 
-function MyNavbar(){
-    const testLogin = false;
+function MyNavbar() {
+    const [state, dispatch] = useContext(UserContext);
+
     return(
         <Navbar fixed="top">
             <Navbar.Brand as={Link} to="/" >
@@ -24,7 +29,7 @@ function MyNavbar(){
             </Nav>
 
             <Form inline>
-                {testLogin ? <Logged /> : <NotLogged />}
+                {state.loginStatus ? <Logged /> : <NotLogged />}
             </Form>
         </Navbar>
     );

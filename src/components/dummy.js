@@ -170,3 +170,18 @@ export const Orders = [
         statusOrder: "On The Way" 
     },
 ];
+
+export const User = [
+    {
+        id: 1,
+        email: "customer@email.com",
+        password: "123",
+        role: "customer",
+    },
+    {
+        id: 2,
+        email: "partner@email.com",
+        password: "123",
+        role: "partner",
+    },
+];
