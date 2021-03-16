@@ -1,13 +1,28 @@
+import { useContext } from 'react';
 import {useHistory} from 'react-router-dom';
-import {Card} from 'react-bootstrap';
+
+import { Card } from 'react-bootstrap';
+
+import { UserContext } from '../../contexts/userContext';
 
 function RestaurantCard(props) {
     const history = useHistory();
 
+    const [state] = useContext(UserContext);
+
+    const loginStatus = (id) => {
+        if (state.loginStatus === true) {
+            history.push(`/restaurant-product-detail/${id}`);
+        } else {
+            alert("Login To Order");
+            history.push(`/`);
+        }
+    }
+
     const {name, logo, restId} = props;
     return (
         <div>
-            <Card onClick={() => history.push(`/restaurant-product-detail/${restId}`)} style={{ cursor: "pointer" }}>
+            <Card onClick={() => loginStatus(restId)} style={{ cursor: "pointer" }}>
                 <Card.Body>
                     <img
                         src={logo}

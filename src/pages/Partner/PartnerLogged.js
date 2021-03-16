@@ -1,14 +1,26 @@
-import React from 'react';
-import {Table} from 'react-bootstrap';
-import OkStat from '../images/ok.png';
-import {Orders} from '../components/dummy';
-import CancelStat from '../images/cancel.png';
+import { useParams } from 'react-router-dom';
+import { Table } from 'react-bootstrap';
+
+import {Orders, Restaurant} from '../../api/dummy';
+
+import OkStat from '../../images/ok.png';
+import CancelStat from '../../images/cancel.png';
 
 function PartnerLogged() {
+    const {id} = useParams()
+
+    const findItem = () => {
+        const selected = Restaurant.find(item => item.id === parseInt(id));
+        return selected;
+    }
+
+    const item = findItem();
+
     const orders = Orders;
     return (
         <div className="landing-container w-100" style={{ height: "100vh" }}>
             <div className="wrapper" style={{ width: "80%", margin: "0 auto", padding: "164px 0 0" }}>
+            <h1 style={{ fontFamily: "'Abhaya Libre'", marginBottom: 20 }}>{ item.name }</h1>
                 <Table striped bordered hover size="sm">
                     <thead className="thead-dark">
                         <tr className="text-center">

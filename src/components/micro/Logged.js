@@ -2,15 +2,15 @@ import {useContext} from 'react';
 import {Dropdown} from 'react-bootstrap';
 import {Link, useHistory} from 'react-router-dom';
 
-import { UserContext } from '../contexts/userContext';
+import { UserContext } from '../../contexts/userContext';
 
 import MyCart from './Cart';
 
-import Customer from '../images/customer_circle.png';
-import AddProduct from '../images/add_product.png';
-import Logout from '../images/logout.png';
-import UserIcon from '../images/user.png';
-import PartnerIcon from '../images/partner_circle.png';
+import Customer from '../../images/customer_circle.png';
+import AddProduct from '../../images/add_product.png';
+import Logout from '../../images/logout.png';
+import UserIcon from '../../images/user.png';
+import PartnerIcon from '../../images/partner_circle.png';
 
 
 
@@ -38,8 +38,8 @@ function CustomerDropdownMenu(props) {
     return(
         <>
             <MyCart />
-            <Dropdown>
-                <Dropdown.Toggle variant="none" id="dropdown-basic">
+            <Dropdown style={{ padding: "0" }}>
+                <Dropdown.Toggle variant="none" style={{ padding: "auto 0" }} id="dropdown-basic">
                             <img 
                                 src={Customer}
                                 alt="Customer Rounded Image"
@@ -48,7 +48,7 @@ function CustomerDropdownMenu(props) {
                             />
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                    <Dropdown.Item onClick={() => history.push(`/profile/customer`)} className="d-flex align-items-center">
+                    <Dropdown.Item onClick={() => history.push(`/profile`)} className="d-flex align-items-center">
                         <img 
                             src={UserIcon}
                             alt="User Icon"
@@ -92,7 +92,7 @@ function PartnerDropdownMenu(props){
                             />
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                    <Dropdown.Item onClick={() => history.push('/profile/partner')} className="d-flex align-items-center">
+                    <Dropdown.Item onClick={() => history.push('/profile')} className="d-flex align-items-center">
                         <img 
                             src={UserIcon}
                             alt="User Icon"

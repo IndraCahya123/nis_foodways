@@ -4,6 +4,7 @@ export const UserContext = createContext();
 
 const initialValues = {
     loginStatus: false,
+    userId: null,
     role: "",
 };
 
@@ -16,6 +17,7 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 loginStatus: true,
+                userId: payload.userId,
                 role: payload.role
             };
         case "LOGOUT":

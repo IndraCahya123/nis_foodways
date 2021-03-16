@@ -6,6 +6,8 @@ import Geprek from '../images/geprekbensu.png';
 import Nasgor from '../images/nasigoreng.png';
 import Pecel from '../images/pecelayam.png';
 import Kopi from '../images/kopikenangan.png';
+import Customer from '../images/customer_rect.png';
+import Partner from '../images/partner_rect.png';
 
 export const Restaurant = [
     {
@@ -174,14 +176,24 @@ export const Orders = [
 export const User = [
     {
         id: 1,
+        username: "Indra Cahya Bali",
         email: "customer@email.com",
         password: "123",
+        profilePicture: Customer,
+        phone: "08133xxxxxx",
+        location: "",
         role: "customer",
+        restauranId: null,
     },
     {
         id: 2,
+        username: "Geprek Bensu",
         email: "partner@email.com",
         password: "123",
+        profilePicture: Partner,
+        phone: "08133xxxxxx",
+        location: "",
         role: "partner",
+        restauranId: 1,
     },
 ];

@@ -1,9 +1,11 @@
 import React from 'react';
 import { Container, Row, CardDeck } from 'react-bootstrap';
+
+import {Restaurant, NearestRestaurants} from '../api/dummy';
+
 import TopLandingPage from '../components/TopLandingPage';
-import RestaurantCard from '../components/RestaurantCard';
-import NearestRestaurantCard from '../components/NearestRestaurantCard';
-import {Restaurant, NearestRestaurants} from '../components/dummy';
+import RestaurantCard from '../components/Card/RestaurantCard';
+import NearestRestaurantCard from '../components/Card/NearestRestaurantCard';
 
 function LandingPage(){
     return(

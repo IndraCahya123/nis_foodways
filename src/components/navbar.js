@@ -6,15 +6,17 @@ import { UserContext } from '../contexts/userContext';
 
 import brandLogo from '../images/fw_logo.png';
 
-import NotLogged from './NotLogged';
-import Logged from './Logged';
+import NotLogged from './micro/NotLogged';
+import Logged from './micro/Logged';
 
 function MyNavbar() {
-    const [state, dispatch] = useContext(UserContext);
+    const [state] = useContext(UserContext);
 
     return(
         <Navbar fixed="top">
-            <Navbar.Brand as={Link} to="/" >
+            {
+                state.role === "partner" ? 
+                <Navbar.Brand as={Link} to="/partner" >
                 WaysFood{' '}
                 <img
                     src={brandLogo}
@@ -23,7 +25,18 @@ function MyNavbar() {
                     className="d-inline-block align-top"
                     alt="FoodWays logo"
                 />
-            </Navbar.Brand>
+                </Navbar.Brand> :
+                <Navbar.Brand as={Link} to="/" >
+                WaysFood{' '}
+                <img
+                    src={brandLogo}
+                    width="30"
+                    height="30"
+                    className="d-inline-block align-top"
+                    alt="FoodWays logo"
+                />
+                </Navbar.Brand>    
+            }
             
             <Nav className="mr-auto">
             </Nav>

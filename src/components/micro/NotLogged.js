@@ -2,9 +2,9 @@ import {useState, useContext} from 'react';
 import {useHistory} from 'react-router-dom';
 import {Modal, Button, Form} from 'react-bootstrap';
 
-import { UserContext } from '../contexts/userContext';
+import { UserContext } from '../../contexts/userContext';
 
-import { User } from './dummy';
+import { User } from '../../api/dummy';
 
 function NotLogged() {
 
@@ -61,15 +61,17 @@ function NotLogged() {
                         dispatch({
                             type: "LOGIN",
                             payload: {
+                                userId: searchUser.id,
                                 role: searchUser.role,
                             }
                         });
                         setModalLogin(false);
-                        history.push('/partner');
+                        history.push(`/partner/${searchUser.restauranId}`);
                     } else if (searchUser.role == "customer"){
                         dispatch({
                             type: "LOGIN",
                             payload: {
+                                userId: searchUser.id,
                                 role: searchUser.role,
                             }
                         });
